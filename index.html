@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue2-Todolist</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="./app-composition.js" defer></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1>Todolist App</h1>
+
+    <!-- Input and button to add a new task -->
+    <input v-model="newTask" @keydown.enter="addTask" placeholder="Write a new task ..">
+    <button @click="addTask">Add Task</button>
+
+    <!-- New tasks list -->
+    <ul>
+      <li v-for="task in tasks" :key="task.id">
+        {{ task.title }}
+        <button @click="removeTask(task.id)"></button>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>
